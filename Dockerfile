@@ -15,14 +15,12 @@ RUN apt install -y wget \
 
 RUN mkdir -p /run/php
 
-RUN adduser -u 1000 appbox
-RUN usermod -aG sudo appbox
+RUN adduser --system --disabled-password --home ${HOME} --shell /sbin/nologin --group --uid 1000 appbox
 
 ADD /scripts /scripts
 RUN chmod -R +x /scripts
 
 ADD /sources /sources
-
 EXPOSE 80
 
-ENTRYPOINT [ "/scripts/Entrypoint.sh" ]
+CMD [ "/scripts/Entrypoint.sh" ]

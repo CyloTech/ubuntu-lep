@@ -20,6 +20,7 @@ if [ ! -f /etc/lep_configured ]; then
     # Copy NGINX fastcgi_params
     cp /etc/nginx/fastcgi_params /home/appbox/config/nginx/fastcgi_params
 
+
 # Install Nginx Supervisor Config
 cat << EOF >> /home/appbox/config/supervisor/conf.d/nginx.conf
 [program:nginx]
