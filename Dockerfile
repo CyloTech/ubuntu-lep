@@ -23,4 +23,7 @@ RUN chmod -R +x /scripts
 ADD /sources /sources
 EXPOSE 80
 
+RUN apt autoremove -y && apt clean
+RUN rm -rf /var/lib/apt/lists/*
+
 CMD [ "/scripts/Entrypoint.sh" ]
